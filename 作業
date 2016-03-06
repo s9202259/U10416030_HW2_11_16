@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class RepeatAdditionQuiz {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		int number1 = (int)(Math.random()*10);
+		int number1 = (int)(Math.random()*10);		//隨機生成的兩個題目數字
 		int number2 = (int)(Math.random()*10);
 		int inputNumber;
 		
@@ -15,7 +15,7 @@ public class RepeatAdditionQuiz {
 		
 		Calculate cal = new Calculate();
 		
-		while (inputNumber != number1 + number2) {
+		while (inputNumber != number1 + number2) {		//判定輸入的數字是否正確，以及是否有重複
 			if(cal.alreadyEnter(String.valueOf(inputNumber))) {
 				System.out.println("You already enter " + inputNumber 
 						+ ", please enter again");
@@ -34,21 +34,18 @@ public class RepeatAdditionQuiz {
 
 class Calculate {
 	
-	private ArrayList<String> alreadyEnter = new ArrayList<String>();
+	private ArrayList<String> alreadyEnter = new ArrayList<String>();		//儲存輸入過的數字
 	Calculate() {
 	}
 	
-	public boolean alreadyEnter(String a) {
+	public boolean alreadyEnter(String a) {		//判定輸入的數字有沒有重複
 		if (alreadyEnter.contains(a)) {
 			return true;
 		}
 		else return false;
 	}
 	
-	public void addArray(String a) {
+	public void addArray(String a) {		//將輸入的數字存進ArrayList裡面
 		alreadyEnter.add(a);
-	}
-	public void removeArray(String a) {
-		alreadyEnter.remove(a);
 	}
 }
