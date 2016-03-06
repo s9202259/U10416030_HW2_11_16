@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class RepeatAdditionQuiz {
@@ -6,8 +6,11 @@ public class RepeatAdditionQuiz {
 		Scanner input = new Scanner(System.in);
 		int number1 = (int)(Math.random()*10);
 		int number2 = (int)(Math.random()*10);
+		int inputNumber;
+		ArrayList<String> alreadyEnter = new ArrayList<String>();
 		
 		System.out.println("what is " + number1 + " + " + number2 + " ?");
+		inputNumber = input.nextInt();
 	}
 }
 
