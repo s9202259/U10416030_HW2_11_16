@@ -11,6 +11,20 @@ public class RepeatAdditionQuiz {
 		
 		System.out.println("what is " + number1 + " + " + number2 + " ?");
 		inputNumber = input.nextInt();
+		alreadyEnter.add("" +inputNumber);
+		
+		while (inputNumber != number1 + number2) {
+			System.out.println("Wrong answer, please enter anain:");
+			inputNumber = input.nextInt();
+			alreadyEnter.add("" +inputNumber);
+			while (alreadyEnter.contains("" +inputNumber)) {
+				System.out.println("You already enter " + inputNumber 
+						+ ", please enter again");
+				inputNumber = input.nextInt();
+				alreadyEnter.add("" +inputNumber);
+			}
+		}
+		System.out.println("You got it!");
 	}
 }
 
