@@ -1,3 +1,5 @@
+//U10416030 陳子勤
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -7,22 +9,24 @@ public class RepeatAdditionQuiz {
 		int number1 = (int)(Math.random()*10);
 		int number2 = (int)(Math.random()*10);
 		int inputNumber;
-		ArrayList<String> alreadyEnter = new ArrayList<String>();
 		
 		System.out.println("what is " + number1 + " + " + number2 + " ?");
 		inputNumber = input.nextInt();
-		alreadyEnter.add("" +inputNumber);
+		
+		Calculate cal = new Calculate();
 		
 		while (inputNumber != number1 + number2) {
-			System.out.println("Wrong answer, please enter anain:");
-			inputNumber = input.nextInt();
-			alreadyEnter.add("" +inputNumber);
-			while (alreadyEnter.contains("" +inputNumber)) {
+			if(cal.alreadyEnter(String.valueOf(inputNumber))) {
 				System.out.println("You already enter " + inputNumber 
 						+ ", please enter again");
 				inputNumber = input.nextInt();
-				alreadyEnter.add("" +inputNumber);
 			}
+			else {
+				cal.addArray(String.valueOf(inputNumber));
+				System.out.println("Wrong answer, please enter anain:");
+				inputNumber = input.nextInt();
+			}
+			
 		}
 		System.out.println("You got it!");
 	}
@@ -30,4 +34,21 @@ public class RepeatAdditionQuiz {
 
 class Calculate {
 	
+	private ArrayList<String> alreadyEnter = new ArrayList<String>();
+	Calculate() {
+	}
+	
+	public boolean alreadyEnter(String a) {
+		if (alreadyEnter.contains(a)) {
+			return true;
+		}
+		else return false;
+	}
+	
+	public void addArray(String a) {
+		alreadyEnter.add(a);
+	}
+	public void removeArray(String a) {
+		alreadyEnter.remove(a);
+	}
 }
