@@ -23,7 +23,7 @@ public class RepeatAdditionQuiz {
 			}
 			else {
 				cal.addArray(String.valueOf(inputNumber));
-				System.out.println("Wrong answer, please enter anain:");
+				System.out.println("Wrong answer, please enter again:");
 				inputNumber = input.nextInt();
 			}
 			
